@@ -4,7 +4,7 @@ from django.db.models import F, FloatField, Q, Sum
 from django.db.models.functions import Coalesce
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpRequest
 
 # Create your views here.
 
