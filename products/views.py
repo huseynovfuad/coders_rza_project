@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Category, Basket
 from django.db.models import F, FloatField, Q, Sum
 from django.db.models.functions import Coalesce
