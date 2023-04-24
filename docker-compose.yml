@@ -1,0 +1,29 @@
+version: "3.8"
+
+
+services:
+  django_web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    image: app:django_web
+    container_name: django_web
+    command: bash -c "python3 ./manage.py makemigrations && python3 ./manage.py migrate && python3 ./manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - postgres
+
+
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=prostafuad999
+    ports:
+      - 5432:5432
+    container_name: postgres
